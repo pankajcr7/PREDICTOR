@@ -18,16 +18,26 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function predictMultipliers(recentMultiplier, numPredictions) {
         const resultHtml = [];
+        let prevMultiplier = recentMultiplier;
+
         for (let i = 0; i < numPredictions; i++) {
             let predictedMultiplier;
-            do {
-                predictedMultiplier = Math.random() * 1.5 + 1.0;
-                predictedMultiplier = parseFloat(predictedMultiplier.toFixed(2));
-            } while (predictedMultiplier >= recentMultiplier);
             
+            // Check if the previous multiplier was very high (above 10X)
+            if (prevMultiplier > 10) {
+                // Generate a multiplier between 1.30X and 2.00X
+                predictedMultiplier = Math.random() * 0.7 + 1.3;
+            } else {
+                // Generate a normal multiplier between 1.00X and 2.00X
+                predictedMultiplier = Math.random() * 1 + 1.0;
+            }
+
+            predictedMultiplier = parseFloat(predictedMultiplier.toFixed(2));
             const color = getRandomColor();
             resultHtml.push(`<div class="result-box" style="background-color: ${color}">${predictedMultiplier.toFixed(2)}</div>`);
+            prevMultiplier = predictedMultiplier;
         }
+        
         return resultHtml.join("");
     }
 
