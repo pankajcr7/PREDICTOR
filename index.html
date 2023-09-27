@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Predictor</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Brutal Predictor</h1>
+        <label for="recentMultiplier">Enter the recent multiplier signal:</label>
+        <input type="number" step="0.01" id="recentMultiplier" placeholder="e.g., 1.36">
+        <label for="numPredictions">Number of Predictions:</label>
+        <input type="number" id="numPredictions" min="1" max="10" value="4">
+        <button id="predictButton">Predict</button>
+        <div id="resultContainer"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
