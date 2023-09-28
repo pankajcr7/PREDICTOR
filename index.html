@@ -8,6 +8,8 @@
 <body>
     <div class="container">
         <h1>Brutal Predictor</h1>
+        <h2>BET ONLY WHEN COLOR</h2>
+        <H2>IS BLUE OR PURPLE</H2>
         <label for="recentMultiplier">Enter the recent multiplier signal:</label>
         <input type="number" step="0.01" id="recentMultiplier" placeholder="e.g., 1.36">
         <label for="penultimateMultiplier">Enter the penultimate multiplier signal:</label>
@@ -16,6 +18,21 @@
         <input type="number" id="numPredictions" min="1" max="10" value="4">
         <button id="predictButton">Predict</button>
         <div id="resultContainer"></div>
+        <div id="historyContainer">
+            <h2>Result History</h2>
+            <table id="resultHistory">
+                <thead>
+                    <tr>
+                        <th>Recent</th>
+                        <th>Penultimate</th>
+                        <th>Move Type</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Previous results go here -->
+                </tbody>
+            </table>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>
